@@ -9,8 +9,7 @@ class Input extends Component {
             showProblems: false,
             inputValue: "",
             started: false,
-            userAnswers: [],
-            showResults: false
+            userAnswers: []
         };
     }
 
@@ -78,9 +77,15 @@ class Input extends Component {
     }
 
     renderResults = () => {
-        if (this.state.showResults) {
+        if (this.state.currentNumber === this.props.problems.length) {
             return (
-                <div><Results /></div>
+                <div>
+                    <Results
+                        problems={this.props.problems}
+                        answers={this.props.answers}
+                        userAnswers={this.state.userAnswers}
+                    />
+                </div>
             );
         }
     }
