@@ -1,44 +1,43 @@
 import React, { Component } from 'react';
 import Results from './Results';
+
 class Input extends Component {
     constructor(props) {
         super(props);
         this.state = {
             currentNumber: 0,
             startBtnShow: true,
-            showProblems: false,
             inputValue: "",
             started: false,
             userAnswers: []
         };
     }
 
-    startInput = () => {
-        console.log('Input started...');
+    startDrill = () => {
+        console.log('Drill started...');
         this.setState({
             startBtnShow: false,
-            showProblems: true,
             started: true
         });
     }
 
-    showStartButton = () => {
+    renderStartButton = () => {
         if (this.state.startBtnShow) {
             return (
-                <button onClick={this.startInput}>Start</button>
+                <button onClick={this.startDrill}>Start</button>
             );
         }
     }
 
-    showProblem = () => {
-        if (this.state.showProblems) {
+    renderProblem = () => {
+        if (this.state.started) {
             return (
                 <span>{this.props.problems[this.state.currentNumber]}<label> {this.state.inputValue}</label></span>
             );
         }
     }
 
-    nextProblem = () => {
+    goToNextProblem = () => {
         this.setState(prevState => ({
             currentNumber: prevState.currentNumber + 1,
             userAnswers: [...prevState.userAnswers, this.state.inputValue]
@@ -49,7 +48,7 @@ class Input extends Component {
         });
     }
 
-    typed = (event) => {
+    enableInput = (event) => {
         console.log(event.target.value);
         if (this.state.started) {
             let number = event.target.value;
@@ -59,7 +58,7 @@ class Input extends Component {
         }
     }
 
-    clear = () => {
+    clearInput = () => {
         this.setState({
             inputValue: ""
         });
@@ -68,11 +67,11 @@ class Input extends Component {
     renderButton = (value) => {
         if (value === "C") {
             return (
-                <button onClick={this.clear} value={value}>{value}</button>
+                <button disabled={!this.state.started} onClick={this.clearInput} value={value}>{value}</button>
             );
         }
         return (
-            <button onClick={this.typed} value={value}>{value}</button>
+            <button disabled={!this.state.started} onClick={this.enableInput} value={value}>{value}</button>
         );
     }
 
@@ -94,8 +93,8 @@ class Input extends Component {
         return (
             <div>
                 <div>
-                    {this.showStartButton()}
-                    {this.showProblem()}
+                    {this.renderStartButton()}
+                    {this.renderProblem()}
                 </div>
                 <div>
                     <div>
@@ -116,10 +115,10 @@ class Input extends Component {
                     <div>
                         {this.renderButton("C")}
                         {this.renderButton(0)}
-                        <button>(-)</button>
+                        {this.renderButton("-")}
                     </div>
                     <div>
-                        <button onClick={this.nextProblem}>Next</button>
+                        <button disabled={!this.state.started} onClick={this.goToNextProblem}>Next</button>
                     </div>
                 </div>
                 {this.renderResults()}
