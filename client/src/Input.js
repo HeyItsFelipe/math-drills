@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Results from './Results';
 
 class Input extends Component {
     constructor(props) {
@@ -8,8 +7,7 @@ class Input extends Component {
             currentNumber: 0,
             startBtnShow: true,
             inputValue: "",
-            started: false,
-            userAnswers: []
+            started: false
         };
     }
 
@@ -38,10 +36,11 @@ class Input extends Component {
     }
 
     goToNextProblem = () => {
+        this.props.pushInputToUserAnswers(this.state.inputValue, this.state.currentNumber);
         this.setState(prevState => ({
-            currentNumber: prevState.currentNumber + 1,
-            userAnswers: [...prevState.userAnswers, this.state.inputValue]
+            currentNumber: prevState.currentNumber + 1
         }), () => {
+            this.renderResults();
             this.setState({
                 inputValue: ""
             });
@@ -77,15 +76,7 @@ class Input extends Component {
 
     renderResults = () => {
         if (this.state.currentNumber === this.props.problems.length) {
-            return (
-                <div>
-                    <Results
-                        problems={this.props.problems}
-                        answers={this.props.answers}
-                        userAnswers={this.state.userAnswers}
-                    />
-                </div>
-            );
+            this.props.handleShowResults();
         }
     }
 
@@ -121,7 +112,7 @@ class Input extends Component {
                         <button disabled={!this.state.started} onClick={this.goToNextProblem}>Next</button>
                     </div>
                 </div>
-                {this.renderResults()}
+
             </div >
         );
     }
