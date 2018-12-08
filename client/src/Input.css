@@ -1,0 +1,60 @@
+/* Ipad width is 768px */
+
+.Input {
+    margin: auto;
+    width: 75%;
+    border: 1px solid blue;
+    background: lightcyan;
+}
+
+.Input-screen {
+    margin: 20px auto 20px auto;
+    width: 75%;
+    height: 3rem;
+    background: white;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.Input-buttons {
+    margin: auto;
+    width: fit-content;
+    border: 1px solid orange;
+}
+
+.Input-next {
+    margin: auto;
+    width: fit-content;
+}
+
+.Input-buttons-btn {
+    width: 7rem;
+    height: 7rem;
+    font-size: 4rem;
+    margin: 4px;
+}
+
+.Input-start {
+    margin: auto;
+    width: fit-content;
+}
+
+.Input-startBtn {
+    width: 12rem;
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.Input-nextBtn {
+    width: 12rem;
+    height: 6rem;
+    font-size: 4rem; 
+}
+
+.Input-problem {
+    margin-left: 29%;
+}
+
+.Input-problemText {
+    font-size: 2.5rem;
+}

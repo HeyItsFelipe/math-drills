@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import Results from './Results';
-
+import './MultiplicationDrill.css';
 class MultiplicationDrill extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +30,7 @@ class MultiplicationDrill extends Component {
             let num1 = Math.floor(Math.random() * 13);
             let num2 = Math.floor(Math.random() * 13);
             let ans = num1 * num2;
-            problems.push(`${num1} X ${num2} =`);
+            problems.push(`${num1} x ${num2} =`);
             answers.push(`${ans}`);
         }
         console.log(problems);
@@ -54,12 +54,14 @@ class MultiplicationDrill extends Component {
     renderInput = () => {
         if (this.state.showInput) {
             return (
-                <Input
-                    problems={this.state.problems}
-                    answers={this.state.answers}
-                    pushInputToUserAnswers={this.pushInputToUserAnswers}
-                    handleShowResults={this.handleShowResults}
-                />
+                <div className="drill-input">
+                    <Input
+                        problems={this.state.problems}
+                        answers={this.state.answers}
+                        pushInputToUserAnswers={this.pushInputToUserAnswers}
+                        handleShowResults={this.handleShowResults}
+                    />
+                </div>
             );
         }
     }
@@ -67,11 +69,13 @@ class MultiplicationDrill extends Component {
     renderResults = () => {
         if (this.state.showResults) {
             return (
-                <Results
-                    problems={this.state.problems}
-                    answers={this.state.answers}
-                    userAnswers={this.state.userAnswers}
-                />
+                <div className="drill-results">
+                    <Results
+                        problems={this.state.problems}
+                        answers={this.state.answers}
+                        userAnswers={this.state.userAnswers}
+                    />
+                </div>
             );
         }
     }

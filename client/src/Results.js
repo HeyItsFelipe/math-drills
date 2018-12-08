@@ -9,7 +9,7 @@ const Results = ({ problems, answers, userAnswers }) => {
         }
     });
     return (
-        <div>
+        <div className="Results">
             <div>Results</div>
             <ul>{allResults}</ul>
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Input.css';
 class Input extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +22,9 @@ class Input extends Component {
     renderStartButton = () => {
         if (this.state.startBtnShow) {
             return (
-                <button onClick={this.startDrill}>Start</button>
+                <div className="Input-start">
+                    <button className="Input-startBtn" onClick={this.startDrill}>Start</button>
+                </div>
             );
         }
     }
@@ -30,7 +32,9 @@ class Input extends Component {
     renderProblem = () => {
         if (this.state.started) {
             return (
-                <span>{this.props.problems[this.state.currentNumber]}<label> {this.state.inputValue}</label></span>
+                <div className="Input-problem">
+                    <span className="Input-problemText">{this.props.problems[this.state.currentNumber]}<label> {this.state.inputValue}</label></span>
+                </div>
             );
         }
     }
@@ -66,11 +70,16 @@ class Input extends Component {
     renderButton = (value) => {
         if (value === "C") {
             return (
-                <button disabled={!this.state.started} onClick={this.clearInput} value={value}>{value}</button>
+                <button className="Input-buttons-btn" disabled={!this.state.started} onClick={this.clearInput} value={value}>{value}</button>
+            );
+        }
+        if (value === "-") {
+            return (
+                <button className="Input-buttons-btn" disabled={!this.state.started} onClick={this.enableInput} value={value}>({value})</button>
             );
         }
         return (
-            <button disabled={!this.state.started} onClick={this.enableInput} value={value}>{value}</button>
+            <button className="Input-buttons-btn" disabled={!this.state.started} onClick={this.enableInput} value={value}>{value}</button>
         );
     }
 
@@ -82,12 +91,12 @@ class Input extends Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <div className="Input">
+                <div className="Input-screen">
                     {this.renderStartButton()}
                     {this.renderProblem()}
                 </div>
-                <div>
+                <div className="Input-buttons">
                     <div>
                         {this.renderButton(7)}
                         {this.renderButton(8)}
@@ -108,11 +117,10 @@ class Input extends Component {
                         {this.renderButton(0)}
                         {this.renderButton("-")}
                     </div>
-                    <div>
-                        <button disabled={!this.state.started} onClick={this.goToNextProblem}>Next</button>
-                    </div>
                 </div>
-
+                <div className="Input-next">
+                    <button className="Input-nextBtn" disabled={!this.state.started} onClick={this.goToNextProblem}>Next</button>
+                </div>
             </div >
         );
     }
