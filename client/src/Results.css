@@ -1,0 +1,32 @@
+.Results {
+    border: 1px solid blue;
+    margin: auto;
+    width: 75%;
+}
+
+.Results-title {
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.Results-list {
+    list-style-type: none;
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    width: 75%;
+}
+
+.Results-correct {
+    color: green;
+    background-color: lightgreen;
+    font-size: 2rem;
+}
+
+.Results-incorrect {
+    color: red;
+    background-color: pink;
+    font-size: 2rem;
+}
