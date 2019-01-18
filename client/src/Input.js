@@ -52,11 +52,15 @@ class Input extends Component {
     }
 
     enableInput = (event) => {
-        console.log(event.target.value);
+        let value = null;
         if (this.state.started) {
-            let number = event.target.value;
+            if (event === "-") {
+                value = "-"
+            } else {
+                value = event.target.value;
+            }
             this.setState(prevState => ({
-                inputValue: prevState.inputValue.concat(number)
+                inputValue: prevState.inputValue.concat(value)
             }));
         }
     }
@@ -70,12 +74,15 @@ class Input extends Component {
     renderButton = (value) => {
         if (value === "C") {
             return (
-                <button className="Input-buttons-btn" disabled={!this.state.started} onClick={this.clearInput} value={value}>{value}</button>
+                <button className="Input-buttons-btn Input-buttons-btn-clear" disabled={!this.state.started} onClick={this.clearInput} value={value}>{value}</button>
             );
         }
         if (value === "-") {
+            // let negative = `(${value})`;
             return (
-                <button className="Input-buttons-btn" disabled={!this.state.started} onClick={this.enableInput} value={value}>({value})</button>
+                <button className="Input-buttons-btn" disabled={!this.state.started} onClick={(e) => this.enableInput("-")} value={value}>
+                    <span className="Input-buttons-btn-negative">({value})</span>
+                </button>
             );
         }
         return (
