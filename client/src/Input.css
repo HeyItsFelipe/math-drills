@@ -2,7 +2,9 @@
 
 .Input {
     margin: auto;
-    width: 40%;
+    /* width: 40%; */
+    box-sizing: border-box;
+    width: 575px;
     border: 1px solid blue;
     background: #99CCFF;
     border-radius: 70px;
