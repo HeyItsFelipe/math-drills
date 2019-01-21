@@ -5,16 +5,20 @@ import Header from './Header';
 import Body from './Body';
 import MultiplicationDrill from './MultiplicationDrill';
 import Menu from './Menu';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        {/* <Header />
+      <Router>
+        <div>
+          {/* <Header />
         <Body /> */}
-        {/* <MultiplicationDrill /> */}
-        <Menu />
-      </div>
+          {/* <MultiplicationDrill /> */}
+          <Route exact path="/" component={Menu} />
+          <Route exact path="/multiplication-drill" component={MultiplicationDrill} />
+        </div>
+      </Router>
     );
   }
   // render() {
