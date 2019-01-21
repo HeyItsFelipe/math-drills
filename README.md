@@ -10,7 +10,10 @@ Navigate to client folder and run `npm install` to install client dependencies. 
 Navigate back to top level project directory and run `npm run client`. \
 App will appear and run in [http://localhost:3000](http://localhost:3000).
 
-# To Do
+# Designs
+To view initial designs, click [here](https://drive.google.com/file/d/14N7KJ-S0Ak5wEvm7xs0Spx3yq2Tw19_l/view?usp=sharing).
+
+# MVP To Do
 #### Add Menu Component
 [ ] Menu at start of app allows user to select type of math
 
