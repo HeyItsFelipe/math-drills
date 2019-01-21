@@ -4,13 +4,16 @@ import './App.css';
 import Header from './Header';
 import Body from './Body';
 import MultiplicationDrill from './MultiplicationDrill';
+import Menu from './Menu';
+
 class App extends Component {
   render() {
     return (
       <div>
         {/* <Header />
         <Body /> */}
-        <MultiplicationDrill />
+        {/* <MultiplicationDrill /> */}
+        <Menu />
       </div>
     );
   }
