@@ -1,5 +1,6 @@
 import React from 'react';
 import './Menu.css';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
 
@@ -13,7 +14,7 @@ const Menu = () => {
                         <button className="Menu-buttons-btn">Subtraction</button>
                     </div>
                     <div>
-                        <button className="Menu-buttons-btn">Multiplication</button>
+                        <Link to="/multiplication-drill"><button className="Menu-buttons-btn">Multiplication</button></Link>
                         <button className="Menu-buttons-btn">Division</button>
                     </div>
                 </div>
