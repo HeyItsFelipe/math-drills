@@ -1,12 +1,9 @@
 .drill-input {
     margin: auto;
-    padding-top: 20px;
     width: 100%;
-    /* border: 1px solid red; */
 }
 
 .drill-results {
-    margin: 20px auto 20px auto;
+    margin: 0px auto 20px auto;
     width: 100%;
-    border: 1px solid red;
 }
